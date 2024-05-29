@@ -89,6 +89,9 @@ body {
 .navItems:hover {
   opacity: 1 !important;
 }
+.start-100 {
+  left: -100%;
+}
 .gap-28 {
   gap: 28px;
 }

@@ -8,12 +8,34 @@ const NavBar = () => {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    document.body.style.overflow = show ? "visible" : "hidden";
+    const handleResize = () => {
+      if (window.innerWidth < 1200) {
+        document.body.style.overflow = show ? "visible" : "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    };
 
+    // Initial check
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
     return () => {
+      window.removeEventListener("resize", handleResize);
       document.body.style.overflow = "";
     };
   }, [show]);
+
+  const handleClick = (e) => {
+    if (window.innerWidth < 1200) {
+      setShow(!show);
+    } else {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div>
@@ -28,7 +50,7 @@ const NavBar = () => {
               >
                 <li>
                   <a
-                    onClick={() => setShow(!show)}
+                    onClick={handleClick}
                     className=" fw-normal fs-16 lh-24 ff-dm-sans clr-white opacity_08 navItems"
                     href="#AboutUs"
                   >
@@ -44,21 +66,21 @@ const NavBar = () => {
                   </a>
                   <div class="dropdown-content">
                     <a
-                      onClick={() => setShow(!show)}
+                      onClick={handleClick}
                       className="fw-normal fs-16 lh-24 ff-dm-sans clr-white opacity_08 navItems pointer"
                       href="#"
                     >
                       Link 1
                     </a>
                     <a
-                      onClick={() => setShow(!show)}
+                      onClick={handleClick}
                       className="fw-normal fs-16 lh-24 ff-dm-sans clr-white opacity_08 navItems pointer"
                       href="#"
                     >
                       Link 2
                     </a>
                     <a
-                      onClick={() => setShow(!show)}
+                      onClick={handleClick}
                       className="fw-normal fs-16 lh-24 ff-dm-sans clr-white opacity_08 navItems pointer"
                       href="#"
                     >
@@ -68,7 +90,7 @@ const NavBar = () => {
                 </li>
                 <li>
                   <a
-                    onClick={() => setShow(!show)}
+                    onClick={handleClick}
                     className=" fw-normal fs-16 lh-24 ff-dm-sans clr-white opacity_08 navItems"
                     href="#Services"
                   >
@@ -77,7 +99,7 @@ const NavBar = () => {
                 </li>
                 <li>
                   <a
-                    onClick={() => setShow(!show)}
+                    onClick={handleClick}
                     className=" fw-normal fs-16 lh-24 ff-dm-sans clr-white opacity_08 navItems"
                     href="#Testimonials"
                   >
@@ -86,7 +108,7 @@ const NavBar = () => {
                 </li>
                 <li>
                   <a
-                    onClick={() => setShow(!show)}
+                    onClick={handleClick}
                     className=" fw-normal fs-16 lh-24 ff-dm-sans clr-white opacity_08 navItems"
                     href="#Blogs"
                   >
