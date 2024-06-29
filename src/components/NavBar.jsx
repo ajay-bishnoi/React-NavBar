@@ -15,14 +15,9 @@ const NavBar = () => {
         document.body.style.overflow = "";
       }
     };
-
-    // Initial check
     handleResize();
-
-    // Add resize event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
       document.body.style.overflow = "";

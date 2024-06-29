@@ -20,6 +20,7 @@
   --l-gray: #11100b1a;
   --blk-red: #b91c20;
   --blk38: #383838;
+  --orange: #fa6a00;
   /* ~~ */
   --brown-blk-gradient: linear-gradient(to right, #0b0803, #0b0803) padding-box,
     linear-gradient(to right, #514634, #4d3e1f) border-box;
@@ -27,6 +28,9 @@
 /* ------------------------color---------------- */
 .clr-white {
   color: var(--white);
+}
+.bg-orange {
+  background-color: var(--orange);
 }
 .clr-black {
   color: var(--black);
@@ -281,13 +285,11 @@
   .lh-62 {
     line-height: 55px;
   }
+  .swiper-3d {
+    perspective: 304px !important;
+  }
   .py-168-125 {
     padding: 100px 0;
-  }
-  .whiteCard {
-    width: min(75vw, 995px);
-    height: 335px;
-    top: 60%;
   }
   .mb-113 {
     margin-bottom: 40px;
@@ -331,11 +333,6 @@
   .max-745 {
     max-width: 510px;
   }
-  .whiteCard {
-    width: min(79vw, 778px);
-    height: 320px;
-    top: 60%;
-  }
   .lh-36 {
     line-height: 32px;
   }
@@ -347,6 +344,17 @@
   }
   .mb-113 {
     margin-bottom: 36px;
+  }
+  .swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active {
+    max-width: 412px;
+    min-height: 434px;
+  }
+  .swiper-slide {
+    height: 86% !important;
+  }
+  form {
+    min-height: 334px;
+    padding: 42px 22px;
   }
 }
 @media (max-width: 768px) {
@@ -375,18 +383,9 @@
   .max-555 {
     max-width: unset;
   }
-  .whiteCard {
-    width: 120%;
-    height: 320px;
-    top: 60%;
-  }
+
   .py-168-125 {
     padding: 75px 0;
-  }
-  .whiteCard {
-    width: 120%;
-    height: 280px;
-    top: 60%;
   }
   .redBox::after {
     top: 3px;
@@ -465,9 +464,17 @@
   .min-h-678 {
     min-height: 358px;
   }
-  .whiteCard {
-    width: 120%;
-    height: 260px;
-    top: 53%;
+
+  /*  */
+  .swiper_container {
+    height: 47rem;
+  }
+  .swiper-slide {
+    width: 28rem !important;
+    height: 36rem !important;
+  }
+  .swiper-slide img {
+    width: 28rem !important;
+    height: 36rem !important;
   }
 }
