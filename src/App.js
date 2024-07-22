@@ -10,20 +10,25 @@ import Mail from "./components/Mail";
 import GetPhoto from "./components/GetPhoto";
 import { Routes, Route } from "react-router-dom";
 import ApiPhotos from "./components/ApiPhotos";
+import ProductList from "./components/ProductList";
+import ProductDetails from "./components/ProductDetails";
 
 function App() {
   return (
     <div>
-      {/* <header className="header-bg-img d-flex flex-column ">
+      <header className="header-bg-img d-flex flex-column ">
         <NavBar />
         <Hero />
-      </header> */}
+      </header>
       <LoginForm />
       <Mail />
-      {/* <CenterSlider /> */}
+      <CenterSlider />
+      <ProductList />
       <Routes>
         <Route path="/" element={<ApiPhotos />} />
         <Route path="/photo" element={<GetPhoto />} />
+        <Route exact path="/" component={ProductList} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </div>
   );
